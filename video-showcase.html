@@ -99,10 +99,7 @@
 		<header id="header" class="alt">
 			<span class="logo"><img src="images/logo.svg" alt="" /></span>
 			<h1 property="dc:title">Video Showcase of the Tabular Data Analysis (TaDA) Workshop @ VLDB 2026</h1>
-			<p>
-				Recorded presentations from the 4th International Workshop on Tabular Data Analysis, covering various
-				trending topics of research in tabular data analysis for data lakes
-			</p>
+			<p>Select recorded presentations</p>
 		</header>
 
 		<!-- Nav -->
@@ -124,8 +121,7 @@
 					<header class="major">
 						<h2>Papers &amp; Videos</h2>
 					</header>
-					<p>Click <b>[Video]</b> to expand and play the presentation. More videos will be added as they
-						become available.</p>
+					<p>Click <b>[Video]</b> to expand and play the presentation.</p>
 					<table>
 						<tr>
 							<td>Vid Kocijan, Jinu Sunil, Jan Eric Lenssen, Viman Deb, Xinwei He, Federico Reyes Gomez,
@@ -136,7 +132,7 @@
 								<span class="expando" id="expand-1">[Video]</span>
 								<div class="expandable" id="expandable-1">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/BOmu884OBSA">
+										data-src="https://www.youtube-nocookie.com/embed/BOmu884OBSA">
 									</iframe>
 								</div>
 							</td>
@@ -149,7 +145,7 @@
 								<span class="expando" id="expand-2">[Video]</span>
 								<div class="expandable" id="expandable-2">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/iVJucmyV4wQ">
+										data-src="https://www.youtube-nocookie.com/embed/iVJucmyV4wQ">
 									</iframe>
 								</div>
 							</td>
@@ -162,7 +158,7 @@
 								<span class="expando" id="expand-3">[Video]</span>
 								<div class="expandable" id="expandable-3">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/ZZN9ocRmn38">
+										data-src="https://www.youtube-nocookie.com/embed/ZZN9ocRmn38">
 									</iframe>
 								</div>
 							</td>
@@ -175,7 +171,7 @@
 								<span class="expando" id="expand-4">[Video]</span>
 								<div class="expandable" id="expandable-4">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/39Xvf7jEelQ">
+										data-src="https://www.youtube-nocookie.com/embed/39Xvf7jEelQ">
 									</iframe>
 								</div>
 							</td>
@@ -188,7 +184,33 @@
 								<span class="expando" id="expand-5">[Video]</span>
 								<div class="expandable" id="expandable-5">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/ZVrtiYXVc9w">
+										data-src="https://www.youtube-nocookie.com/embed/ZVrtiYXVc9w">
+									</iframe>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Sebastian Bugedo, Stijn Vansummeren.
+								<b>Hyperdimensional Computing for Structured Query on Tabula Data Embeddings</b>
+								[<a href="papers/TaDA26_8.pdf">pdf</a>]
+								<span class="expando" id="expand-6">[Video]</span>
+								<div class="expandable" id="expandable-6">
+									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
+										data-src="https://www.youtube-nocookie.com/embed/LSyQu8xe7vI">
+									</iframe>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td>Niharika D'Souza, Liane Vogel, Kavitha Srinivas, Sola Shirai, Oktie Hassanzadeh, Horst Samulowitz.
+								<b>Can a Single Tabular Embedding Model Service Different Tasks?</b>
+								[<a href="papers/TaDA26_11.pdf">pdf</a>]
+								<span class="expando" id="expand-7">[Video]</span>
+								<div class="expandable" id="expandable-7">
+									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
+										data-src="https://www.youtube-nocookie.com/embed/dFIPeNcV4AE">
 									</iframe>
 								</div>
 							</td>
@@ -199,10 +221,10 @@
 							<td>Authors.
 								<b>Title</b>
 								[<a href="papers/TaDA26_X.pdf">pdf</a>]
-								<span class="expando" id="expand-6">[Video]</span>
-								<div class="expandable" id="expandable-6">
+								<span class="expando" id="expand-8">[Video]</span>
+								<div class="expandable" id="expandable-8">
 									<iframe frameborder="0" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" class="youtube-video"
-										src="https://www.youtube-nocookie.com/embed/">
+										data-src="https://www.youtube-nocookie.com/embed/">
 									</iframe>
 								</div>
 							</td>
@@ -240,8 +262,12 @@
 <script type="text/javascript">//<![CDATA[
 	$('.expando').click(function () {
 		target_num = $(this).attr('id').split('-')[1];
-		content_id = '#expandable-'.concat(target_num);
-		$(content_id).slideToggle('fast');
+		content = $('#expandable-'.concat(target_num));
+		iframe = content.find('iframe');
+		if (!iframe.attr('src')) {
+			iframe.attr('src', iframe.attr('data-src'));
+		}
+		content.slideToggle('fast');
 	});
 	//]]>
 </script>
